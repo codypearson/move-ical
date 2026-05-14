@@ -1,0 +1,18 @@
+# Copy to move-ical.toml (or move-ical.local.toml) and adjust paths.
+# CLI flags and environment variables override these values.
+
+source_dir = "/path/to/inbox"
+dest_dir = "/path/to/calendars"
+
+# Scan subfolders for *.ical.zip (default: false)
+recursive = false
+
+# Print actions only; do not write files or delete archives (default: false)
+dry_run = false
+
+# Keep the .ical.zip after extracting .ics files (default: false)
+keep_zip = false
+
+# Use only the file name under dest_dir (zip-slip safe). Set to false to keep
+# relative paths inside the zip, still confined under dest_dir (default: true)
+use_basename_only = true
