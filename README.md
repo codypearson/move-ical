@@ -4,7 +4,29 @@ Small utility script that finds `*.ical.zip` files in a directory, extracts ever
 
 Requires **Python 3.11+** (stdlib `tomllib`).
 
+## Install
+
+From this repository (editable install keeps changes on disk):
+
+```bash
+pip install -e .
+```
+
+Or a regular install:
+
+```bash
+pip install .
+```
+
+After install, run `move-ical` from any directory (see configuration below for `source_dir` / `dest_dir`).
+
 ## Usage
+
+```bash
+move-ical --source-dir /path/to/inbox --dest-dir /path/to/out
+```
+
+Without installing, you can still run the module directly:
 
 ```bash
 python3 move_ical.py --source-dir /path/to/inbox --dest-dir /path/to/out
@@ -13,19 +35,19 @@ python3 move_ical.py --source-dir /path/to/inbox --dest-dir /path/to/out
 See what would happen without writing or deleting:
 
 ```bash
-python3 move_ical.py --source-dir /path/to/inbox --dest-dir /path/to/out --dry-run
+move-ical --source-dir /path/to/inbox --dest-dir /path/to/out --dry-run
 ```
 
 Keep the zip files after extraction:
 
 ```bash
-python3 move_ical.py --source-dir /path/to/inbox --dest-dir /path/to/out --keep-zip
+move-ical --source-dir /path/to/inbox --dest-dir /path/to/out --keep-zip
 ```
 
 Scan subdirectories recursively for `*.ical.zip`:
 
 ```bash
-python3 move_ical.py --source-dir /path/to/inbox --dest-dir /path/to/out --recursive
+move-ical --source-dir /path/to/inbox --dest-dir /path/to/out --recursive
 ```
 
 ### Configuration file
@@ -33,7 +55,7 @@ python3 move_ical.py --source-dir /path/to/inbox --dest-dir /path/to/out --recur
 Copy [`move-ical.example.toml`](move-ical.example.toml) to `move-ical.toml` (or `move-ical.local.toml`) in the current working directory, or pass an explicit path:
 
 ```bash
-python3 move_ical.py --config /path/to/move-ical.toml
+move-ical --config /path/to/move-ical.toml
 ```
 
 You can also set the config path with the `MOVE_ICAL_CONFIG` environment variable.
