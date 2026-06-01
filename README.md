@@ -6,16 +6,47 @@ Requires **Python 3.11+** (stdlib `tomllib`).
 
 ## Install
 
-From this repository (editable install keeps changes on disk):
+### pipx (recommended)
+
+[pipx](https://pipx.pypa.io/) installs the tool in an isolated environment and puts `move-ical` on your `PATH`. This works well on distributions with an externally managed system Python (for example openSUSE).
+
+Install pipx if needed (openSUSE example):
 
 ```bash
-pip install -e .
+sudo zypper install python313-pipx
+pipx ensurepath
 ```
 
-Or a regular install:
+From a clone of this repository:
 
 ```bash
-pip install .
+cd /path/to/move-ical
+pipx install .
+```
+
+To pick up local changes after editing the code:
+
+```bash
+pipx install -e .
+```
+
+Upgrade or reinstall later:
+
+```bash
+pipx upgrade move-ical
+# or: pipx reinstall move-ical
+```
+
+### pip (venv or development)
+
+Use a virtual environment if you prefer `pip` directly:
+
+```bash
+cd /path/to/move-ical
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .    # editable; good while developing
+# or: pip install .
 ```
 
 After install, run `move-ical` from any directory (see configuration below for `source_dir` / `dest_dir`).
